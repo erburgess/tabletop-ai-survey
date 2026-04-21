@@ -3,829 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI & Creativity in Tabletop Gaming — Survey | Credtent</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-
+  <title>AI &amp; Creativity in Tabletop Gaming — Community Survey by Credtent</title>
+  <meta name="description" content="A community survey from Credtent on how tabletop game designers, publishers, players, and critics feel about AI in game creation." />
+  <meta property="og:title" content="AI &amp; Creativity in Tabletop Gaming — Community Survey by Credtent" />
+  <meta property="og:description" content="A community survey from Credtent on how tabletop game designers, publishers, players, and critics feel about AI in game creation." />
+  <meta property="og:type" content="website" />
   <style>
     :root {
-      --indigo-950: #1e1b4b;
-      --indigo-900: #312e81;
-      --indigo-700: #4338ca;
-      --indigo-600: #4f46e5;
-      --indigo-500: #6366f1;
-      --indigo-400: #818cf8;
-      --indigo-100: #e0e7ff;
-      --indigo-50:  #eef2ff;
-      --slate-700:  #334155;
-      --slate-500:  #64748b;
-      --slate-300:  #cbd5e1;
-      --slate-100:  #f1f5f9;
-      --white:      #ffffff;
-      --font-display: 'DM Serif Display', serif;
-      --font-body:    'DM Sans', sans-serif;
-      --radius:       10px;
-      --shadow:       0 4px 24px rgba(67,56,202,0.10);
+      --credtent-purple: #290099;
+      --text: #1a1a2e;
+      --muted: #555;
+      --bg: #ffffff;
+      --border: #e5e5ef;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: var(--font-body);
-      background: var(--slate-100);
-      color: var(--slate-700);
-      line-height: 1.65;
-      min-height: 100vh;
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+      line-height: 1.5;
     }
-
-    /* ── Header ── */
     header {
-      background: var(--white);
-      border-bottom: 1px solid var(--indigo-100);
-      padding: 18px 40px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    header img.logo-mark  { height: 34px; }
-    header img.logo-text  { height: 22px; margin-top: 2px; }
-
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, var(--indigo-950) 0%, var(--indigo-700) 100%);
-      color: var(--white);
-      padding: 72px 40px 60px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse at 70% 30%, rgba(129,140,248,0.18) 0%, transparent 60%),
-                  radial-gradient(ellipse at 20% 80%, rgba(99,102,241,0.12) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: var(--indigo-100);
-      padding: 5px 14px;
-      border-radius: 100px;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      line-height: 1.15;
       max-width: 720px;
-      margin: 0 auto 20px;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--indigo-400);
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.78);
-      max-width: 600px;
       margin: 0 auto;
+      padding: 48px 24px 16px;
+      text-align: center;
     }
-
-    /* ── Definition box ── */
-    .definition-bar {
-      background: var(--indigo-50);
-      border-left: 4px solid var(--indigo-500);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 20px 24px;
-      margin-bottom: 36px;
-      font-size: 0.93rem;
-    }
-
-    .definition-bar strong { color: var(--indigo-700); }
-
-    /* ── Main layout ── */
-    main {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 52px 24px 80px;
-    }
-
-    /* ── Section labels ── */
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--indigo-500);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .section-label::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--indigo-100);
-    }
-
-    /* ── Question cards ── */
-    .question-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px 30px;
-      margin-bottom: 20px;
-      border: 1px solid rgba(99,102,241,0.08);
-      transition: box-shadow 0.2s;
-    }
-
-    .question-card:focus-within {
-      box-shadow: 0 0 0 3px rgba(99,102,241,0.15), var(--shadow);
-    }
-
-    .q-label {
-      font-size: 0.72rem;
-      font-weight: 700;
+    header .brand {
+      font-size: 14px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--indigo-400);
-      margin-bottom: 8px;
-    }
-
-    .q-text {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--indigo-950);
-      margin-bottom: 18px;
-      line-height: 1.45;
-    }
-
-    .q-sub {
-      font-size: 0.83rem;
-      color: var(--slate-500);
-      margin-bottom: 14px;
-      margin-top: -10px;
-    }
-
-    /* ── Options ── */
-    .options { display: flex; flex-direction: column; gap: 10px; }
-
-    .option {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      cursor: pointer;
-      padding: 11px 14px;
-      border-radius: 7px;
-      border: 1.5px solid var(--slate-300);
-      background: var(--slate-100);
-      transition: border-color 0.15s, background 0.15s;
-    }
-
-    .option:hover {
-      border-color: var(--indigo-400);
-      background: var(--indigo-50);
-    }
-
-    .option input[type="radio"],
-    .option input[type="checkbox"] {
-      margin-top: 2px;
-      accent-color: var(--indigo-600);
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      cursor: pointer;
-    }
-
-    .option input[type="radio"]:checked ~ span,
-    .option input[type="checkbox"]:checked ~ span {
-      color: var(--indigo-700);
-      font-weight: 500;
-    }
-
-    .option:has(input:checked) {
-      border-color: var(--indigo-500);
-      background: var(--indigo-50);
-    }
-
-    .option span { font-size: 0.93rem; line-height: 1.4; }
-
-    /* ── Text inputs ── */
-    .text-input,
-    textarea {
-      width: 100%;
-      font-family: var(--font-body);
-      font-size: 0.93rem;
-      border: 1.5px solid var(--slate-300);
-      border-radius: 7px;
-      padding: 11px 14px;
-      color: var(--slate-700);
-      background: var(--slate-100);
-      transition: border-color 0.15s, box-shadow 0.15s;
-      outline: none;
-      resize: vertical;
-    }
-
-    .text-input:focus,
-    textarea:focus {
-      border-color: var(--indigo-500);
-      box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
-      background: var(--white);
-    }
-
-    textarea { min-height: 110px; }
-
-    /* Other field inline */
-    .other-field {
-      display: none;
-      margin-top: 10px;
-    }
-    .other-field.visible { display: block; }
-
-    /* ── Credtent badge spotlight ── */
-    .badge-spotlight {
-      background: linear-gradient(135deg, var(--indigo-950), var(--indigo-900));
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 28px 30px;
-      margin-bottom: 20px;
-    }
-
-    .badge-spotlight .q-label { color: var(--indigo-400); }
-    .badge-spotlight .q-text  { color: var(--white); }
-    .badge-spotlight .q-sub   { color: rgba(255,255,255,0.65); }
-
-    .badge-spotlight .option {
-      background: rgba(255,255,255,0.06);
-      border-color: rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.9);
-    }
-    .badge-spotlight .option:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: var(--indigo-400);
-    }
-    .badge-spotlight .option:has(input:checked) {
-      background: rgba(99,102,241,0.25);
-      border-color: var(--indigo-400);
-    }
-    .badge-spotlight .option span { color: rgba(255,255,255,0.9); }
-
-    .badge-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--indigo-400);
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none;
-      margin-bottom: 18px;
-      transition: color 0.15s;
-    }
-    .badge-link:hover { color: var(--white); }
-    .badge-link svg { width: 14px; height: 14px; }
-
-    /* ── Credtent disclosure ── */
-    .credtent-disclosure {
-      background: var(--white);
-      border: 1.5px solid var(--indigo-100);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      margin-bottom: 16px;
-    }
-
-    .credtent-disclosure-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .credtent-disclosure p {
-      font-size: 0.875rem;
-      color: var(--slate-500);
-      line-height: 1.6;
-    }
-
-    .credtent-disclosure a {
-      color: var(--indigo-600);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .credtent-disclosure a:hover { text-decoration: underline; }
-
-    /* ── Privacy note ── */
-    .privacy-note {
-      background: var(--white);
-      border: 1px solid var(--indigo-100);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      margin-bottom: 32px;
-      font-size: 0.875rem;
-      color: var(--slate-500);
-    }
-
-    .privacy-note svg {
-      color: var(--indigo-400);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* ── Submit ── */
-    .submit-area { text-align: center; margin-top: 12px; }
-
-    .btn-submit {
-      font-family: var(--font-body);
-      font-size: 1rem;
+      color: var(--credtent-purple);
       font-weight: 600;
-      color: var(--white);
-      background: var(--indigo-600);
-      border: none;
-      border-radius: 8px;
-      padding: 16px 48px;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(79,70,229,0.35);
-      letter-spacing: 0.01em;
     }
-
-    .btn-submit:hover {
-      background: var(--indigo-700);
-      box-shadow: 0 6px 24px rgba(79,70,229,0.45);
+    header h1 {
+      font-size: 32px;
+      line-height: 1.2;
+      margin: 12px 0 16px;
     }
-
-    .btn-submit:active { transform: scale(0.98); }
-
-    .submit-sub {
-      margin-top: 12px;
-      font-size: 0.8rem;
-      color: var(--slate-500);
-    }
-
-    /* ── Thank you screen ── */
-    #thank-you {
-      display: none;
-      text-align: center;
-      padding: 80px 24px;
+    header p {
+      color: var(--muted);
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 24px;
     }
-
-    #thank-you .check-circle {
-      width: 72px;
-      height: 72px;
-      background: var(--indigo-50);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 28px;
-      color: var(--indigo-600);
+    main {
+      max-width: 720px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
     }
-
-    #thank-you h2 {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      color: var(--indigo-950);
-      margin-bottom: 14px;
+    .embed-wrap {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
     }
-
-    #thank-you p { color: var(--slate-500); max-width: 440px; margin: 0 auto 28px; }
-
-    #thank-you a {
-      color: var(--indigo-600);
-      font-weight: 500;
+    iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+      min-height: 1400px;
+    }
+    footer {
+      text-align: center;
+      padding: 24px 24px 48px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    footer a {
+      color: var(--credtent-purple);
       text-decoration: none;
     }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--indigo-950);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 28px 24px;
-      font-size: 0.8rem;
-    }
-
-    footer a { color: var(--indigo-400); text-decoration: none; }
-    footer strong { color: rgba(255,255,255,0.8); }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      header { padding: 14px 20px; }
-      .hero  { padding: 52px 20px 44px; }
-      main   { padding: 36px 16px 60px; }
-      .question-card, .badge-spotlight { padding: 22px 20px; }
-    }
-
-    /* ── Animate in ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .question-card, .badge-spotlight, .definition-bar, .privacy-note {
-      animation: fadeUp 0.4s ease both;
-    }
-
-    .question-card:nth-child(2)  { animation-delay: 0.04s; }
-    .question-card:nth-child(3)  { animation-delay: 0.08s; }
-    .question-card:nth-child(4)  { animation-delay: 0.12s; }
-    .question-card:nth-child(5)  { animation-delay: 0.16s; }
-    .question-card:nth-child(6)  { animation-delay: 0.20s; }
-    .question-card:nth-child(7)  { animation-delay: 0.24s; }
-    .question-card:nth-child(8)  { animation-delay: 0.28s; }
-    .question-card:nth-child(9)  { animation-delay: 0.32s; }
-    .question-card:nth-child(10) { animation-delay: 0.36s; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-
-  <!-- Header -->
   <header>
-    <a href="https://credtent.org" aria-label="Credtent home">
-      <svg style="height:34px;width:auto;" width="32" height="37" viewBox="0 0 32 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_8541_2226)">
-<path d="M31.728 6.21518C31.7 7.06218 31.668 7.91018 31.6449 8.75719C31.6289 9.38092 31.6419 10.0057 31.6119 10.6294C31.5678 11.5355 31.5078 12.4415 31.4347 13.3456C31.3526 14.3538 31.2054 15.355 31.0212 16.3502C30.0781 21.4452 28.0367 26.0196 24.5966 29.9363C22.3049 32.5453 19.6507 34.6939 16.5791 36.3238C16.0535 36.6021 15.5669 36.5231 15.0683 36.2788C13.943 35.7281 12.8957 35.0543 11.8956 34.3034C10.6821 33.3923 9.49972 32.4432 8.42545 31.3669C6.8626 29.8021 5.54304 28.047 4.38667 26.1648C3.47158 24.675 2.68566 23.1252 2.11698 21.4682C1.64843 20.1026 1.27999 18.709 0.932578 17.3093C0.688289 16.3251 0.518089 15.329 0.429985 14.3208C0.34188 13.3176 0.269794 12.3124 0.209723 11.3062C0.14865 10.284 0.102598 9.26178 0.0645526 8.23857C0.0325147 7.36754 0.0164942 6.49551 0.000475263 5.62448C-0.00753422 5.18596 0.0825741 5.09285 0.509079 5.02777C1.31503 4.90663 2.12199 4.79049 2.92594 4.65733C3.92312 4.49214 4.9213 4.32995 5.91247 4.13171C8.51756 3.6111 11.0305 2.80614 13.4154 1.62474C13.992 1.33941 14.5537 1.02503 15.1244 0.727683C15.3767 0.596528 15.636 0.455361 15.9313 0.513429C16.1286 0.552475 16.3268 0.620556 16.504 0.713666C17.7174 1.35342 18.9679 1.91409 20.2334 2.43971C22.0986 3.21463 24.0209 3.80332 26.0103 4.15974C27.6031 4.44508 29.198 4.7154 30.7929 4.99073C30.9701 5.02177 31.1514 5.03178 31.3266 5.06782C31.6099 5.12589 31.699 5.23902 31.715 5.53037C31.721 5.6465 31.722 5.76264 31.724 5.87878C31.725 5.99091 31.724 6.10304 31.724 6.21518C31.727 6.21518 31.728 6.21518 31.728 6.21518ZM22.5782 11.2261C22.2929 10.8417 21.9665 10.5193 21.589 10.252C20.2635 9.31284 18.7717 8.87132 17.1638 8.79623C16.1636 8.74918 15.1744 8.84729 14.2043 9.1056C12.7986 9.47904 11.5451 10.1348 10.5009 11.157C9.49772 12.1382 8.81992 13.3176 8.45148 14.6692C8.06703 16.0779 8.03699 17.5045 8.3033 18.9362C8.60166 20.5391 9.30649 21.9388 10.4458 23.1102C11.3299 24.0183 12.3901 24.653 13.5866 25.0585C15.0503 25.5551 16.5511 25.6492 18.0749 25.4429C19.7599 25.2147 21.1936 24.4838 22.375 23.2614C22.5321 23.0982 22.6773 22.922 22.8345 22.7437C22.0616 22.2001 21.3037 21.6685 20.5448 21.1348C20.5158 21.1719 20.4957 21.1969 20.4767 21.2219C20.0082 21.8267 19.4175 22.2742 18.7196 22.5805C17.7755 22.995 16.7853 23.0681 15.7802 22.9169C13.8859 22.6326 12.5523 21.5944 11.7994 19.8393C11.2338 18.5177 11.1467 17.1341 11.42 15.7324C11.6503 14.551 12.1819 13.5138 13.087 12.7069C14.5617 11.3923 16.2767 11.0209 18.18 11.5034C18.9129 11.6897 19.5726 12.02 20.0983 12.5827C20.2044 12.6958 20.3035 12.816 20.4146 12.9431C21.1325 12.3705 21.8493 11.8028 22.5782 11.2261Z" fill="#290099"/>
-</g>
-<defs>
-<clipPath id="clip0_8541_2226">
-<rect width="31.728" height="36" fill="white" transform="translate(0 0.5)"/>
-</clipPath>
-</defs>
-</svg>
-    </a>
-    <svg style="height:22px;width:auto;" width="132" height="25" viewBox="0 0 132 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_8541_2227)">
-<path d="M69.3888 0.503406C69.3888 8.31612 69.3888 16.0825 69.3888 23.8705C67.8528 23.8705 66.3261 23.8705 64.7593 23.8705C64.7593 23.2369 64.7593 22.6034 64.7593 21.8833C64.648 21.9884 64.5924 22.0254 64.5553 22.078C63.5973 23.4069 62.2344 24.0404 60.6675 24.266C56.5634 24.8563 53.3245 22.1676 52.5241 18.1747C52.0204 15.6653 52.3541 13.2794 53.785 11.1161C55.6918 8.23268 59.0728 7.49097 61.7986 8.40884C62.6176 8.68389 63.316 9.17528 63.9372 9.76865C64.0423 9.86755 64.1288 9.98498 64.2215 10.0962C64.2555 10.0839 64.2895 10.0684 64.3235 10.0561C64.3235 9.91699 64.3235 9.77481 64.3235 9.63574C64.3235 6.73379 64.3297 3.83184 64.3143 0.926799C64.3112 0.577576 64.4193 0.494132 64.7531 0.500313C66.1623 0.518856 67.5685 0.5065 68.9778 0.5065C69.1014 0.503409 69.2219 0.503406 69.3888 0.503406ZM64.5924 16.1412C64.5182 15.7425 64.4811 15.3346 64.3699 14.9483C63.5849 12.2194 60.377 11.2583 58.3682 13.1682C57.2989 14.1849 57.0485 15.4984 57.2556 16.9169C57.5987 19.2502 59.7496 20.6595 61.9191 19.9765C63.4613 19.4882 64.5491 17.9059 64.5924 16.1412Z" fill="#290099"/>
-<path d="M17.3514 17.4639C18.5721 18.6105 19.7867 19.7509 21.0507 20.9345C20.5964 21.3487 20.1792 21.772 19.7218 22.1398C17.9015 23.6016 15.7938 24.3309 13.479 24.47C10.9387 24.6215 8.50336 24.2135 6.27513 22.9186C3.28356 21.1787 1.52816 18.5456 0.937884 15.1615C0.51758 12.7571 0.703012 10.3806 1.68578 8.11835C3.00541 5.0866 5.28618 3.0778 8.423 2.09812C12.0265 0.973186 15.5342 1.23278 18.8719 3.08088C19.5981 3.48265 20.2255 4.02039 20.7694 4.64776C19.5642 5.82832 18.3681 6.9996 17.1598 8.18325C16.2975 7.04905 15.0366 6.50202 13.5903 6.31351C10.506 5.90865 7.70293 7.6795 6.83451 10.6711C6.08352 13.2578 6.39566 15.7086 8.23449 17.7823C9.5943 19.3151 11.3899 19.8281 13.3956 19.6489C15.0242 19.5067 16.3346 18.7681 17.3514 17.4639Z" fill="#290099"/>
-<path d="M49.9095 17.5968C46.201 17.5968 42.511 17.5968 38.7869 17.5968C38.858 18.4436 39.2598 19.0678 39.8686 19.5685C41.5962 20.9963 44.2169 20.7707 45.7034 19.074C45.7528 19.0184 45.7807 18.9473 45.8239 18.8701C46.9705 19.5932 48.0522 20.2762 49.1338 20.9623C49.2049 21.0087 49.2667 21.0674 49.3563 21.1354C48.8742 21.8678 48.2716 22.4581 47.5701 22.9526C46.235 23.889 44.7299 24.3062 43.126 24.3989C41.1481 24.5133 39.2567 24.1888 37.5477 23.138C35.3751 21.8029 34.2347 19.8188 33.9843 17.3032C33.7865 15.3068 34.1018 13.4123 35.1927 11.6971C36.5402 9.58011 38.5304 8.45827 40.9781 8.12759C42.7273 7.89272 44.4332 8.07814 46.0155 8.91566C48.1449 10.0406 49.31 11.8887 49.7426 14.1942C49.9312 15.1924 49.9003 16.2308 49.9621 17.2507C49.9683 17.3588 49.9312 17.467 49.9095 17.5968ZM45.2769 14.4105C45.348 13.3072 44.6712 12.1977 43.7101 11.7836C42.4028 11.2211 40.6536 11.5426 39.6492 12.547C39.1423 13.0538 38.8147 13.6533 38.7931 14.4136C40.9719 14.4105 43.1105 14.4105 45.2769 14.4105Z" fill="#290099"/>
-<path d="M100.102 17.5999C96.384 17.5999 92.694 17.5999 88.9761 17.5999C89.0348 18.4189 89.4242 19.0308 89.9991 19.5284C91.6865 20.9933 94.403 20.7924 95.8679 19.1081C95.9235 19.0432 95.973 18.9752 96.0409 18.8917C97.2277 19.6427 98.3804 20.3721 99.5579 21.1169C99.0603 21.871 98.4577 22.4612 97.7562 22.9557C96.4334 23.8829 94.9407 24.3032 93.3492 24.399C91.3589 24.5195 89.4551 24.1981 87.7338 23.138C85.5612 21.803 84.4208 19.8189 84.1705 17.3033C83.9727 15.3192 84.2848 13.4371 85.3603 11.728C86.7077 9.58942 88.7042 8.46141 91.1673 8.12764C92.9041 7.89277 94.5977 8.0751 96.1738 8.89717C98.3217 10.019 99.4961 11.8764 99.9319 14.1973C100.117 15.1955 100.089 16.2339 100.151 17.2538C100.154 17.3496 100.123 17.4485 100.102 17.5999ZM95.4569 14.4106C95.5527 13.3598 94.882 12.2287 93.9363 11.8022C92.6229 11.2119 90.8181 11.5395 89.8137 12.5656C89.3223 13.0693 89.0039 13.6627 88.9761 14.4106C91.1518 14.4106 93.2904 14.4106 95.4569 14.4106Z" fill="#290099"/>
-<path d="M108.177 8.49846C108.177 9.18763 108.177 9.85827 108.177 10.634C108.31 10.4486 108.381 10.3558 108.446 10.26C110.511 7.32408 115.276 7.27772 117.325 10.1797C118.163 11.3664 118.45 12.7324 118.465 14.1417C118.499 17.3279 118.475 20.5173 118.475 23.7036C118.475 23.7499 118.465 23.7994 118.456 23.8705C116.775 23.8705 115.103 23.8705 113.382 23.8705C113.382 23.7252 113.382 23.5831 113.382 23.4409C113.378 20.6749 113.385 17.9059 113.363 15.1399C113.36 14.6887 113.283 14.2251 113.156 13.7924C112.661 12.1267 110.677 11.6167 109.392 12.8066C108.758 13.3907 108.483 14.1478 108.397 14.9792C108.356 15.3717 108.347 15.7673 108.347 16.1628C108.344 18.5703 108.344 20.9809 108.344 23.3883C108.344 23.546 108.344 23.7005 108.344 23.8766C106.635 23.8766 104.975 23.8766 103.294 23.8766C103.294 18.7465 103.294 13.641 103.294 8.50155C104.923 8.49846 106.53 8.49846 108.177 8.49846Z" fill="#290099"/>
-<path d="M78.8765 8.49229C80.1127 8.49229 81.284 8.49229 82.4831 8.49229C82.4831 9.74702 82.4831 10.9739 82.4831 12.2441C81.2994 12.2441 80.122 12.2441 78.9136 12.2441C78.9043 12.4017 78.8951 12.5192 78.8951 12.6397C78.8951 14.494 78.892 16.3452 78.8981 18.1995C78.8981 18.4312 78.9198 18.6692 78.96 18.8979C79.133 19.893 79.6522 20.3504 80.6566 20.3411C81.1944 20.335 81.729 20.2484 82.3317 20.1897C82.3317 20.9592 82.3317 21.7689 82.3317 22.5786C82.3317 22.8012 82.3224 23.0237 82.3409 23.2462C82.3842 23.8303 82.3904 23.8334 81.8465 23.9632C80.4001 24.3155 78.9414 24.4051 77.4827 24.0683C75.5573 23.6232 74.4108 22.3963 74.1079 20.4524C74.0121 19.8436 73.9658 19.2255 73.9596 18.6105C73.941 16.645 73.9534 14.6825 73.9534 12.717C73.9534 12.581 73.9534 12.4481 73.9534 12.2688C73.1375 12.2688 72.3433 12.2688 71.5243 12.2688C71.5243 10.9987 71.5243 9.76865 71.5243 8.50465C72.3155 8.50465 73.1004 8.50465 73.9287 8.50465C73.9287 7.14175 73.9287 5.81284 73.9287 4.45921C75.5975 4.45921 77.22 4.45921 78.8858 4.45921C78.8765 5.78812 78.8765 7.11394 78.8765 8.49229Z" fill="#290099"/>
-<path d="M122.872 12.2627C122.047 12.2627 121.259 12.2627 120.446 12.2627C120.446 11.0048 120.446 9.77792 120.446 8.49846C121.234 8.49846 122.029 8.49846 122.854 8.49846C122.854 7.13247 122.854 5.81285 122.854 4.4654C124.52 4.4654 126.151 4.4654 127.811 4.4654C127.811 5.79739 127.811 7.11703 127.811 8.47375C129.016 8.47375 130.194 8.47375 131.405 8.47375C131.405 9.74084 131.405 10.9678 131.405 12.2348C130.234 12.2348 129.053 12.2348 127.854 12.2348C127.842 12.3646 127.823 12.4604 127.823 12.5532C127.82 14.4569 127.82 16.3575 127.826 18.2613C127.826 18.4807 127.854 18.7063 127.891 18.9226C128.061 19.8745 128.574 20.3381 129.539 20.3381C130.089 20.3381 130.636 20.2484 131.241 20.1928C131.241 20.508 131.235 20.8696 131.241 21.2343C131.254 21.9884 131.272 22.7394 131.291 23.4934C131.297 23.6727 131.297 23.8241 131.065 23.8859C129.378 24.3402 127.678 24.4577 125.984 23.957C124.232 23.4409 123.314 22.1738 123.027 20.4215C122.925 19.8034 122.885 19.1699 122.879 18.5425C122.86 16.4688 122.872 14.3951 122.872 12.2627Z" fill="#290099"/>
-<path d="M28.0476 23.8798C26.3509 23.8798 24.7006 23.8798 23.0225 23.8798C23.0225 18.7589 23.0225 13.6534 23.0225 8.52321C24.6264 8.52321 26.2242 8.52321 27.8652 8.52321C27.8652 9.22475 27.8652 9.92319 27.8652 10.6216C27.8931 10.634 27.924 10.6433 27.9518 10.6556C28.0167 10.5506 28.0785 10.4424 28.1434 10.3373C29.191 8.62519 31.0391 7.75678 32.8625 8.1091C33.0819 8.15236 33.1839 8.21725 33.1716 8.46449C33.1036 9.77176 33.0511 11.079 32.9892 12.3863C32.9862 12.4574 32.9583 12.5254 32.9552 12.5346C32.3001 12.5346 31.6696 12.4636 31.0577 12.547C29.2529 12.7973 28.0538 14.2313 28.0507 16.064C28.0476 18.5085 28.0507 20.9562 28.0507 23.4007C28.0476 23.5398 28.0476 23.6882 28.0476 23.8798Z" fill="#290099"/>
-</g>
-<defs>
-<clipPath id="clip0_8541_2227">
-<rect width="130.679" height="24" fill="white" transform="translate(0.726562 0.5)"/>
-</clipPath>
-</defs>
-</svg>
+    <div class="brand">Credtent</div>
+    <h1>AI &amp; Creativity in Tabletop Gaming</h1>
+    <p>A quick community survey for designers, publishers, players, reviewers, retailers, and journalists in the tabletop space. Your perspective helps Credtent shape how AI disclosure, licensing, and creative consent get built for games.</p>
   </header>
-
-  <!-- Hero -->
-  <div class="hero">
-    <div class="hero-eyebrow">Community Survey · 2026</div>
-    <h1>AI &amp; Creativity in<br /><em>Tabletop Game Design</em></h1>
-    <p>We're gathering honest perspectives from across the tabletop gaming community on AI, creativity, and the future of game design. Your voice matters — this survey takes about five minutes.</p>
-  </div>
-
-  <!-- Form -->
-  <main id="survey-main">
-    <form id="survey-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-      <input type="hidden" name="access_key" value="6132982c-efe6-4111-9a1d-fadc78170eee">
-      <input type="hidden" name="subject" value="AI & Creativity in Tabletop Gaming — Survey Response">
-      <input type="checkbox" name="botcheck" style="display:none">
-
-      <!-- Definition -->
-      <div class="definition-bar">
-        <strong>A note on terminology:</strong> This survey focuses on <strong>generative AI</strong> — tools that produce original text, images, audio, or other creative content from prompts (e.g. ChatGPT, Midjourney, Claude, Stable Diffusion). We are <em>not</em> asking about corrective AI (grammar tools), machine learning used in analytics, or algorithmic systems that don't directly replace or replicate human creative output.
-      </div>
-
-      <!-- ── SECTION 1 ── -->
-      <div class="section-label">Section 1 — Who You Are</div>
-
-      <!-- Q1 -->
-      <div class="question-card">
-        <div class="q-label">Question 1</div>
-        <div class="q-text">What best describes your role in the tabletop gaming industry?</div>
-        <div class="q-sub">Select all that apply.</div>
-        <div class="options">
-          <label class="option"><input type="checkbox" name="role[]" value="published_designer" /><span>Published game designer</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="unpublished_designer" /><span>Game designer (unpublished or in development)</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="artist_illustrator" /><span>Game artist or illustrator</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="publisher" /><span>Publisher or studio</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="industry_professional" /><span>Marketing, production, or industry professional</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="content_creator" /><span>Content creator (streamer, podcaster, etc.)</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="reviewer_press" /><span>Reviewer, critic, or games media / press</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="player" /><span>Player / enthusiast without an industry role</span></label>
-          <label class="option"><input type="checkbox" name="role[]" value="other_role" id="other-role-check" /><span>Other</span></label>
-        </div>
-        <div class="other-field" id="other-role-field">
-          <input type="text" class="text-input" name="role_other" placeholder="Please describe your role…" />
-        </div>
-      </div>
-
-      <!-- Q2 -->
-      <div class="question-card">
-        <div class="q-label">Question 2</div>
-        <div class="q-text">Would you like to include your name with your response?</div>
-        <div class="q-sub">Completely optional. All responses are confidential either way, and we ask that you complete this survey only once.</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="include_name" value="yes" id="name-yes" /><span>Yes, I'd like to include my name</span></label>
-          <label class="option"><input type="radio" name="include_name" value="no" /><span>No, I prefer to remain anonymous</span></label>
-        </div>
-        <div class="other-field" id="name-field">
-          <input type="text" class="text-input" name="respondent_name" placeholder="Your name…" />
-        </div>
-      </div>
-
-      <!-- ── SECTION 2 ── -->
-      <div class="section-label">Section 2 — Your Perspective on Generative AI</div>
-
-      <!-- Q3 -->
-      <div class="question-card">
-        <div class="q-label">Question 3</div>
-        <div class="q-text">How would you describe your current relationship with generative AI tools?</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="ai_relationship" value="use_regularly" /><span>I use them regularly in my creative or professional work</span></label>
-          <label class="option"><input type="radio" name="ai_relationship" value="experimented" /><span>I've experimented but don't use them consistently</span></label>
-          <label class="option"><input type="radio" name="ai_relationship" value="curious" /><span>I'm curious but haven't tried them yet</span></label>
-          <label class="option"><input type="radio" name="ai_relationship" value="tried_no" /><span>I've tried them and chosen not to use them</span></label>
-          <label class="option"><input type="radio" name="ai_relationship" value="actively_avoid" /><span>I actively avoid them and have concerns about their use</span></label>
-        </div>
-      </div>
-
-      <!-- Q4 -->
-      <div class="question-card">
-        <div class="q-label">Question 4</div>
-        <div class="q-text">In your view, is the use of generative AI in game design a positive development for the industry, a negative one, or something more complicated?</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="ai_overall" value="mostly_positive" /><span>Mostly positive</span></label>
-          <label class="option"><input type="radio" name="ai_overall" value="mostly_negative" /><span>Mostly negative</span></label>
-          <label class="option"><input type="radio" name="ai_overall" value="depends" /><span>It depends heavily on how it's used</span></label>
-          <label class="option"><input type="radio" name="ai_overall" value="no_opinion" /><span>I don't have a strong opinion yet</span></label>
-          <label class="option"><input type="radio" name="ai_overall" value="other_overall" id="other-overall-check" /><span>Other</span></label>
-        </div>
-        <div class="other-field" id="other-overall-field">
-          <input type="text" class="text-input" name="ai_overall_other" placeholder="Please share your perspective…" />
-        </div>
-      </div>
-
-      <!-- Q5 -->
-      <div class="question-card">
-        <div class="q-label">Question 5</div>
-        <div class="q-text">Which of the following uses of generative AI in game design feel acceptable to you?</div>
-        <div class="q-sub">Select all that apply.</div>
-        <div class="options">
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="brainstorming" /><span>Brainstorming and idea generation</span></label>
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="draft_text" /><span>Writing placeholder or draft text (rules, flavor text) during development</span></label>
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="concept_art_internal" /><span>Generating concept art or reference images for internal use</span></label>
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="final_artwork" /><span>Generating final artwork used in a published product</span></label>
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="final_text" /><span>Writing final rulebook or card text in a published product</span></label>
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="graphic_design" /><span>Generating graphic design elements (layouts, logos, UI)</span></label>
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="none_acceptable" /><span>None of the above feel acceptable to me</span></label>
-          <label class="option"><input type="checkbox" name="acceptable_uses[]" value="all_acceptable" /><span>All of the above feel acceptable to me</span></label>
-        </div>
-      </div>
-
-      <!-- Q6 -->
-      <div class="question-card">
-        <div class="q-label">Question 6</div>
-        <div class="q-text">Does your view on the acceptability of generative AI in game design change depending on where it appears in the process?</div>
-        <div class="q-sub">Select the statement that best reflects your position.</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="prototype_vs_final" value="both_fine" /><span>I'm comfortable with AI use at any stage — prototyping and final product alike</span></label>
-          <label class="option"><input type="radio" name="prototype_vs_final" value="prototype_only" /><span>AI is acceptable for prototyping and development, but not in a final published product</span></label>
-          <label class="option"><input type="radio" name="prototype_vs_final" value="depends_component" /><span>It depends on which component — I draw the line differently for art, text, and mechanics</span></label>
-          <label class="option"><input type="radio" name="prototype_vs_final" value="neither_fine" /><span>I'm uncomfortable with AI use at any stage of the design process</span></label>
-          <label class="option"><input type="radio" name="prototype_vs_final" value="no_view" /><span>I don't have a strong view on this</span></label>
-        </div>
-      </div>
-
-      <!-- Q7 -->
-      <div class="question-card">
-        <div class="q-label">Question 7</div>
-        <div class="q-text">If a game you were considering purchasing used generative AI as part of its creative process, would that affect your decision to buy it?</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="purchase_impact" value="less_likely" /><span>Yes, I would be less likely to purchase it</span></label>
-          <label class="option"><input type="radio" name="purchase_impact" value="depends_disclosure" /><span>It depends on what was AI-generated and whether it was disclosed</span></label>
-          <label class="option"><input type="radio" name="purchase_impact" value="no_impact" /><span>No, it wouldn't affect my decision</span></label>
-          <label class="option"><input type="radio" name="purchase_impact" value="more_interested" /><span>I would actually be more interested if AI tools were used thoughtfully</span></label>
-          <label class="option"><input type="radio" name="purchase_impact" value="not_sure" /><span>I'm not sure</span></label>
-        </div>
-      </div>
-
-      <!-- Q8 -->
-      <div class="question-card">
-        <div class="q-label">Question 8</div>
-        <div class="q-text">Are you aware of cases where undisclosed AI use in a tabletop product led to community backlash — for example, Kickstarter campaigns that lost funding after AI-generated art was discovered, or publishers who faced criticism for using AI without disclosure?</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="backlash_awareness" value="yes_familiar" /><span>Yes, I'm familiar with specific incidents</span></label>
-          <label class="option"><input type="radio" name="backlash_awareness" value="yes_generally" /><span>I've heard about this generally but don't know specific cases</span></label>
-          <label class="option"><input type="radio" name="backlash_awareness" value="no_unaware" /><span>No, I wasn't aware this had happened</span></label>
-        </div>
-      </div>
-
-      <!-- Q9 -->
-      <div class="question-card">
-        <div class="q-label">Question 9</div>
-        <div class="q-text">Do you believe game designers and artists should be required to disclose when generative AI was used in creating a product?</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="disclosure_requirement" value="yes_always" /><span>Yes, always</span></label>
-          <label class="option"><input type="radio" name="disclosure_requirement" value="yes_significant" /><span>Yes, but only when AI played a significant role</span></label>
-          <label class="option"><input type="radio" name="disclosure_requirement" value="encouraged_not_required" /><span>It should be encouraged but not required</span></label>
-          <label class="option"><input type="radio" name="disclosure_requirement" value="creators_choice" /><span>No, disclosure should be the creator's choice</span></label>
-          <label class="option"><input type="radio" name="disclosure_requirement" value="no_strong_opinion" /><span>I don't have a strong opinion</span></label>
-        </div>
-      </div>
-
-      <!-- Q10 — Credtent badge spotlight -->
-      <div class="badge-spotlight">
-        <div class="q-label">Question 10</div>
-        <div class="q-text">Credtent has developed Creative Origin badges to help creators communicate their relationship to AI in their work. The three designations are <strong>Human Composed</strong>, <strong>AI-Assisted</strong>, and <strong>AI Composed</strong>. How do you feel about a voluntary badging system like this?</div>
-        <a class="badge-link" href="https://registry.credtent.org/creative-origin" target="_blank" rel="noopener">
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 1L10.5 6H15L11 9.5L12.5 15L8 12L3.5 15L5 9.5L1 6H5.5L8 1Z"/></svg>
-          View the Creative Origin Guide at registry.credtent.org
-        </a>
-        <div class="options">
-          <label class="option"><input type="radio" name="badge_opinion" value="valuable_needed" /><span>I think it's a valuable and needed tool for the industry</span></label>
-          <label class="option"><input type="radio" name="badge_opinion" value="support_adoption_concern" /><span>I support the idea but question whether it would be widely adopted</span></label>
-          <label class="option"><input type="radio" name="badge_opinion" value="neutral" /><span>I'm neutral — I'd need to see it in practice</span></label>
-          <label class="option"><input type="radio" name="badge_opinion" value="wont_matter" /><span>I don't think it would make a meaningful difference</span></label>
-          <label class="option"><input type="radio" name="badge_opinion" value="concerns" id="badge-concerns-check" /><span>I have concerns about it</span></label>
-        </div>
-        <div class="other-field" id="badge-concerns-field">
-          <textarea name="badge_concerns" placeholder="Please share your concerns…"></textarea>
-        </div>
-      </div>
-
-      <!-- Q11 -->
-      <div class="question-card">
-        <div class="q-label">Question 11</div>
-        <div class="q-text">Do you believe current copyright law adequately protects game designers and artists in the age of generative AI?</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="copyright_adequacy" value="yes_sufficient" /><span>Yes, existing law is sufficient</span></label>
-          <label class="option"><input type="radio" name="copyright_adequacy" value="no_needs_update" /><span>No — protections need to be updated for the AI era</span></label>
-          <label class="option"><input type="radio" name="copyright_adequacy" value="unsure" /><span>I'm not sure how copyright law currently applies</span></label>
-          <label class="option"><input type="radio" name="copyright_adequacy" value="have_opinion" id="copyright-opinion-check" /><span>I have strong opinions on this</span></label>
-        </div>
-        <div class="other-field" id="copyright-opinion-field">
-          <textarea name="copyright_opinion" placeholder="Please share your thoughts…"></textarea>
-        </div>
-      </div>
-
-      <!-- Q12 -->
-      <div class="question-card">
-        <div class="q-label">Question 12</div>
-        <div class="q-text">Some argue that copyright should be extended to cover a creator's <em>style</em> — making it a violation to train AI on an artist's or designer's work without consent. What's your view?</div>
-        <div class="options">
-          <label class="option"><input type="radio" name="style_copyright" value="strongly_support" /><span>I strongly support this</span></label>
-          <label class="option"><input type="radio" name="style_copyright" value="support_reservations" /><span>I support it with some reservations</span></label>
-          <label class="option"><input type="radio" name="style_copyright" value="neutral" /><span>I'm neutral</span></label>
-          <label class="option"><input type="radio" name="style_copyright" value="dont_support" /><span>I don't support it</span></label>
-          <label class="option"><input type="radio" name="style_copyright" value="nuanced" id="style-nuance-check" /><span>I have a more nuanced take</span></label>
-        </div>
-        <div class="other-field" id="style-nuance-field">
-          <textarea name="style_copyright_nuance" placeholder="Please share your nuanced perspective…"></textarea>
-        </div>
-      </div>
-
-      <!-- Q13 -->
-      <div class="question-card">
-        <div class="q-label">Question 13</div>
-        <div class="q-text">What's the single most important thing you wish decision-makers — publishers, platform holders, industry organizations — understood about AI and game design?</div>
-        <textarea name="most_important" placeholder="Share your thoughts here…"></textarea>
-      </div>
-
-      <!-- Q14 -->
-      <div class="question-card">
-        <div class="q-label">Question 14</div>
-        <div class="q-text">Is there anything else you'd like to share about AI, creativity, and the future of the tabletop gaming industry?</div>
-        <textarea name="anything_else" placeholder="Open thoughts, concerns, hopes — anything you'd like us to know…"></textarea>
-      </div>
-
-      <!-- Credtent disclosure -->
-      <div class="credtent-disclosure">
-        <div class="credtent-disclosure-logo">
-          <svg style="height:28px;width:auto;" width="32" height="37" viewBox="0 0 32 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_8541_2226)">
-<path d="M31.728 6.21518C31.7 7.06218 31.668 7.91018 31.6449 8.75719C31.6289 9.38092 31.6419 10.0057 31.6119 10.6294C31.5678 11.5355 31.5078 12.4415 31.4347 13.3456C31.3526 14.3538 31.2054 15.355 31.0212 16.3502C30.0781 21.4452 28.0367 26.0196 24.5966 29.9363C22.3049 32.5453 19.6507 34.6939 16.5791 36.3238C16.0535 36.6021 15.5669 36.5231 15.0683 36.2788C13.943 35.7281 12.8957 35.0543 11.8956 34.3034C10.6821 33.3923 9.49972 32.4432 8.42545 31.3669C6.8626 29.8021 5.54304 28.047 4.38667 26.1648C3.47158 24.675 2.68566 23.1252 2.11698 21.4682C1.64843 20.1026 1.27999 18.709 0.932578 17.3093C0.688289 16.3251 0.518089 15.329 0.429985 14.3208C0.34188 13.3176 0.269794 12.3124 0.209723 11.3062C0.14865 10.284 0.102598 9.26178 0.0645526 8.23857C0.0325147 7.36754 0.0164942 6.49551 0.000475263 5.62448C-0.00753422 5.18596 0.0825741 5.09285 0.509079 5.02777C1.31503 4.90663 2.12199 4.79049 2.92594 4.65733C3.92312 4.49214 4.9213 4.32995 5.91247 4.13171C8.51756 3.6111 11.0305 2.80614 13.4154 1.62474C13.992 1.33941 14.5537 1.02503 15.1244 0.727683C15.3767 0.596528 15.636 0.455361 15.9313 0.513429C16.1286 0.552475 16.3268 0.620556 16.504 0.713666C17.7174 1.35342 18.9679 1.91409 20.2334 2.43971C22.0986 3.21463 24.0209 3.80332 26.0103 4.15974C27.6031 4.44508 29.198 4.7154 30.7929 4.99073C30.9701 5.02177 31.1514 5.03178 31.3266 5.06782C31.6099 5.12589 31.699 5.23902 31.715 5.53037C31.721 5.6465 31.722 5.76264 31.724 5.87878C31.725 5.99091 31.724 6.10304 31.724 6.21518C31.727 6.21518 31.728 6.21518 31.728 6.21518ZM22.5782 11.2261C22.2929 10.8417 21.9665 10.5193 21.589 10.252C20.2635 9.31284 18.7717 8.87132 17.1638 8.79623C16.1636 8.74918 15.1744 8.84729 14.2043 9.1056C12.7986 9.47904 11.5451 10.1348 10.5009 11.157C9.49772 12.1382 8.81992 13.3176 8.45148 14.6692C8.06703 16.0779 8.03699 17.5045 8.3033 18.9362C8.60166 20.5391 9.30649 21.9388 10.4458 23.1102C11.3299 24.0183 12.3901 24.653 13.5866 25.0585C15.0503 25.5551 16.5511 25.6492 18.0749 25.4429C19.7599 25.2147 21.1936 24.4838 22.375 23.2614C22.5321 23.0982 22.6773 22.922 22.8345 22.7437C22.0616 22.2001 21.3037 21.6685 20.5448 21.1348C20.5158 21.1719 20.4957 21.1969 20.4767 21.2219C20.0082 21.8267 19.4175 22.2742 18.7196 22.5805C17.7755 22.995 16.7853 23.0681 15.7802 22.9169C13.8859 22.6326 12.5523 21.5944 11.7994 19.8393C11.2338 18.5177 11.1467 17.1341 11.42 15.7324C11.6503 14.551 12.1819 13.5138 13.087 12.7069C14.5617 11.3923 16.2767 11.0209 18.18 11.5034C18.9129 11.6897 19.5726 12.02 20.0983 12.5827C20.2044 12.6958 20.3035 12.816 20.4146 12.9431C21.1325 12.3705 21.8493 11.8028 22.5782 11.2261Z" fill="#290099"/>
-</g>
-<defs>
-<clipPath id="clip0_8541_2226">
-<rect width="31.728" height="36" fill="white" transform="translate(0 0.5)"/>
-</clipPath>
-</defs>
-</svg>
-          <svg style="height:18px;width:auto;" width="132" height="25" viewBox="0 0 132 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_8541_2227)">
-<path d="M69.3888 0.503406C69.3888 8.31612 69.3888 16.0825 69.3888 23.8705C67.8528 23.8705 66.3261 23.8705 64.7593 23.8705C64.7593 23.2369 64.7593 22.6034 64.7593 21.8833C64.648 21.9884 64.5924 22.0254 64.5553 22.078C63.5973 23.4069 62.2344 24.0404 60.6675 24.266C56.5634 24.8563 53.3245 22.1676 52.5241 18.1747C52.0204 15.6653 52.3541 13.2794 53.785 11.1161C55.6918 8.23268 59.0728 7.49097 61.7986 8.40884C62.6176 8.68389 63.316 9.17528 63.9372 9.76865C64.0423 9.86755 64.1288 9.98498 64.2215 10.0962C64.2555 10.0839 64.2895 10.0684 64.3235 10.0561C64.3235 9.91699 64.3235 9.77481 64.3235 9.63574C64.3235 6.73379 64.3297 3.83184 64.3143 0.926799C64.3112 0.577576 64.4193 0.494132 64.7531 0.500313C66.1623 0.518856 67.5685 0.5065 68.9778 0.5065C69.1014 0.503409 69.2219 0.503406 69.3888 0.503406ZM64.5924 16.1412C64.5182 15.7425 64.4811 15.3346 64.3699 14.9483C63.5849 12.2194 60.377 11.2583 58.3682 13.1682C57.2989 14.1849 57.0485 15.4984 57.2556 16.9169C57.5987 19.2502 59.7496 20.6595 61.9191 19.9765C63.4613 19.4882 64.5491 17.9059 64.5924 16.1412Z" fill="#290099"/>
-<path d="M17.3514 17.4639C18.5721 18.6105 19.7867 19.7509 21.0507 20.9345C20.5964 21.3487 20.1792 21.772 19.7218 22.1398C17.9015 23.6016 15.7938 24.3309 13.479 24.47C10.9387 24.6215 8.50336 24.2135 6.27513 22.9186C3.28356 21.1787 1.52816 18.5456 0.937884 15.1615C0.51758 12.7571 0.703012 10.3806 1.68578 8.11835C3.00541 5.0866 5.28618 3.0778 8.423 2.09812C12.0265 0.973186 15.5342 1.23278 18.8719 3.08088C19.5981 3.48265 20.2255 4.02039 20.7694 4.64776C19.5642 5.82832 18.3681 6.9996 17.1598 8.18325C16.2975 7.04905 15.0366 6.50202 13.5903 6.31351C10.506 5.90865 7.70293 7.6795 6.83451 10.6711C6.08352 13.2578 6.39566 15.7086 8.23449 17.7823C9.5943 19.3151 11.3899 19.8281 13.3956 19.6489C15.0242 19.5067 16.3346 18.7681 17.3514 17.4639Z" fill="#290099"/>
-<path d="M49.9095 17.5968C46.201 17.5968 42.511 17.5968 38.7869 17.5968C38.858 18.4436 39.2598 19.0678 39.8686 19.5685C41.5962 20.9963 44.2169 20.7707 45.7034 19.074C45.7528 19.0184 45.7807 18.9473 45.8239 18.8701C46.9705 19.5932 48.0522 20.2762 49.1338 20.9623C49.2049 21.0087 49.2667 21.0674 49.3563 21.1354C48.8742 21.8678 48.2716 22.4581 47.5701 22.9526C46.235 23.889 44.7299 24.3062 43.126 24.3989C41.1481 24.5133 39.2567 24.1888 37.5477 23.138C35.3751 21.8029 34.2347 19.8188 33.9843 17.3032C33.7865 15.3068 34.1018 13.4123 35.1927 11.6971C36.5402 9.58011 38.5304 8.45827 40.9781 8.12759C42.7273 7.89272 44.4332 8.07814 46.0155 8.91566C48.1449 10.0406 49.31 11.8887 49.7426 14.1942C49.9312 15.1924 49.9003 16.2308 49.9621 17.2507C49.9683 17.3588 49.9312 17.467 49.9095 17.5968ZM45.2769 14.4105C45.348 13.3072 44.6712 12.1977 43.7101 11.7836C42.4028 11.2211 40.6536 11.5426 39.6492 12.547C39.1423 13.0538 38.8147 13.6533 38.7931 14.4136C40.9719 14.4105 43.1105 14.4105 45.2769 14.4105Z" fill="#290099"/>
-<path d="M100.102 17.5999C96.384 17.5999 92.694 17.5999 88.9761 17.5999C89.0348 18.4189 89.4242 19.0308 89.9991 19.5284C91.6865 20.9933 94.403 20.7924 95.8679 19.1081C95.9235 19.0432 95.973 18.9752 96.0409 18.8917C97.2277 19.6427 98.3804 20.3721 99.5579 21.1169C99.0603 21.871 98.4577 22.4612 97.7562 22.9557C96.4334 23.8829 94.9407 24.3032 93.3492 24.399C91.3589 24.5195 89.4551 24.1981 87.7338 23.138C85.5612 21.803 84.4208 19.8189 84.1705 17.3033C83.9727 15.3192 84.2848 13.4371 85.3603 11.728C86.7077 9.58942 88.7042 8.46141 91.1673 8.12764C92.9041 7.89277 94.5977 8.0751 96.1738 8.89717C98.3217 10.019 99.4961 11.8764 99.9319 14.1973C100.117 15.1955 100.089 16.2339 100.151 17.2538C100.154 17.3496 100.123 17.4485 100.102 17.5999ZM95.4569 14.4106C95.5527 13.3598 94.882 12.2287 93.9363 11.8022C92.6229 11.2119 90.8181 11.5395 89.8137 12.5656C89.3223 13.0693 89.0039 13.6627 88.9761 14.4106C91.1518 14.4106 93.2904 14.4106 95.4569 14.4106Z" fill="#290099"/>
-<path d="M108.177 8.49846C108.177 9.18763 108.177 9.85827 108.177 10.634C108.31 10.4486 108.381 10.3558 108.446 10.26C110.511 7.32408 115.276 7.27772 117.325 10.1797C118.163 11.3664 118.45 12.7324 118.465 14.1417C118.499 17.3279 118.475 20.5173 118.475 23.7036C118.475 23.7499 118.465 23.7994 118.456 23.8705C116.775 23.8705 115.103 23.8705 113.382 23.8705C113.382 23.7252 113.382 23.5831 113.382 23.4409C113.378 20.6749 113.385 17.9059 113.363 15.1399C113.36 14.6887 113.283 14.2251 113.156 13.7924C112.661 12.1267 110.677 11.6167 109.392 12.8066C108.758 13.3907 108.483 14.1478 108.397 14.9792C108.356 15.3717 108.347 15.7673 108.347 16.1628C108.344 18.5703 108.344 20.9809 108.344 23.3883C108.344 23.546 108.344 23.7005 108.344 23.8766C106.635 23.8766 104.975 23.8766 103.294 23.8766C103.294 18.7465 103.294 13.641 103.294 8.50155C104.923 8.49846 106.53 8.49846 108.177 8.49846Z" fill="#290099"/>
-<path d="M78.8765 8.49229C80.1127 8.49229 81.284 8.49229 82.4831 8.49229C82.4831 9.74702 82.4831 10.9739 82.4831 12.2441C81.2994 12.2441 80.122 12.2441 78.9136 12.2441C78.9043 12.4017 78.8951 12.5192 78.8951 12.6397C78.8951 14.494 78.892 16.3452 78.8981 18.1995C78.8981 18.4312 78.9198 18.6692 78.96 18.8979C79.133 19.893 79.6522 20.3504 80.6566 20.3411C81.1944 20.335 81.729 20.2484 82.3317 20.1897C82.3317 20.9592 82.3317 21.7689 82.3317 22.5786C82.3317 22.8012 82.3224 23.0237 82.3409 23.2462C82.3842 23.8303 82.3904 23.8334 81.8465 23.9632C80.4001 24.3155 78.9414 24.4051 77.4827 24.0683C75.5573 23.6232 74.4108 22.3963 74.1079 20.4524C74.0121 19.8436 73.9658 19.2255 73.9596 18.6105C73.941 16.645 73.9534 14.6825 73.9534 12.717C73.9534 12.581 73.9534 12.4481 73.9534 12.2688C73.1375 12.2688 72.3433 12.2688 71.5243 12.2688C71.5243 10.9987 71.5243 9.76865 71.5243 8.50465C72.3155 8.50465 73.1004 8.50465 73.9287 8.50465C73.9287 7.14175 73.9287 5.81284 73.9287 4.45921C75.5975 4.45921 77.22 4.45921 78.8858 4.45921C78.8765 5.78812 78.8765 7.11394 78.8765 8.49229Z" fill="#290099"/>
-<path d="M122.872 12.2627C122.047 12.2627 121.259 12.2627 120.446 12.2627C120.446 11.0048 120.446 9.77792 120.446 8.49846C121.234 8.49846 122.029 8.49846 122.854 8.49846C122.854 7.13247 122.854 5.81285 122.854 4.4654C124.52 4.4654 126.151 4.4654 127.811 4.4654C127.811 5.79739 127.811 7.11703 127.811 8.47375C129.016 8.47375 130.194 8.47375 131.405 8.47375C131.405 9.74084 131.405 10.9678 131.405 12.2348C130.234 12.2348 129.053 12.2348 127.854 12.2348C127.842 12.3646 127.823 12.4604 127.823 12.5532C127.82 14.4569 127.82 16.3575 127.826 18.2613C127.826 18.4807 127.854 18.7063 127.891 18.9226C128.061 19.8745 128.574 20.3381 129.539 20.3381C130.089 20.3381 130.636 20.2484 131.241 20.1928C131.241 20.508 131.235 20.8696 131.241 21.2343C131.254 21.9884 131.272 22.7394 131.291 23.4934C131.297 23.6727 131.297 23.8241 131.065 23.8859C129.378 24.3402 127.678 24.4577 125.984 23.957C124.232 23.4409 123.314 22.1738 123.027 20.4215C122.925 19.8034 122.885 19.1699 122.879 18.5425C122.86 16.4688 122.872 14.3951 122.872 12.2627Z" fill="#290099"/>
-<path d="M28.0476 23.8798C26.3509 23.8798 24.7006 23.8798 23.0225 23.8798C23.0225 18.7589 23.0225 13.6534 23.0225 8.52321C24.6264 8.52321 26.2242 8.52321 27.8652 8.52321C27.8652 9.22475 27.8652 9.92319 27.8652 10.6216C27.8931 10.634 27.924 10.6433 27.9518 10.6556C28.0167 10.5506 28.0785 10.4424 28.1434 10.3373C29.191 8.62519 31.0391 7.75678 32.8625 8.1091C33.0819 8.15236 33.1839 8.21725 33.1716 8.46449C33.1036 9.77176 33.0511 11.079 32.9892 12.3863C32.9862 12.4574 32.9583 12.5254 32.9552 12.5346C32.3001 12.5346 31.6696 12.4636 31.0577 12.547C29.2529 12.7973 28.0538 14.2313 28.0507 16.064C28.0476 18.5085 28.0507 20.9562 28.0507 23.4007C28.0476 23.5398 28.0476 23.6882 28.0476 23.8798Z" fill="#290099"/>
-</g>
-<defs>
-<clipPath id="clip0_8541_2227">
-<rect width="130.679" height="24" fill="white" transform="translate(0.726562 0.5)"/>
-</clipPath>
-</defs>
-</svg>
-        </div>
-        <p>This survey is conducted by <strong>Credtent Inc.</strong>, a Delaware Public Benefit Corporation and neutral third-party registry for creators and AI licensing. Your responses will be used solely to inform community discussion at upcoming industry sessions and to publish aggregated, anonymized findings. Credtent will not sell, share, or use your individual responses for any commercial purpose. For questions about how your data is handled, contact <a href="/cdn-cgi/l/email-protection#6c04090000032c0f1e09081809021842031e0b"><span class="__cf_email__" data-cfemail="79111c151516391a0b1c1d0d1c170d57160b1e">[email&#160;protected]</span></a> or visit <a href="https://credtent.org" target="_blank" rel="noopener">credtent.org</a>.</p>
-      </div>
-
-      <!-- Privacy note -->
-      <div class="privacy-note">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10 2L4 5v4.5C4 13.09 6.58 16.5 10 18c3.42-1.5 6-4.91 6-8.5V5L10 2Z"/>
-        </svg>
-        <span>Your responses are kept confidential. We use this data only to inform our session discussions and publish aggregated findings. Please complete this survey only once so that the results reflect the true breadth of community opinion.</span>
-      </div>
-
-      <!-- Submit -->
-      <div class="submit-area">
-        <button type="submit" class="btn-submit">Submit My Response</button>
-        <p class="submit-sub">Responses are anonymous unless you chose to include your name above.</p>
-      </div>
-
-    </form>
-
-    <!-- Thank you screen -->
-    <div id="thank-you">
-      <div class="check-circle">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="18" cy="18" r="16"/>
-          <path d="M11 18l5 5 9-9"/>
-        </svg>
-      </div>
-      <h2>Thank you.</h2>
-      <p>Your perspective is part of something important. We'll be sharing aggregated findings from this survey at upcoming industry sessions and publishing the results through Credtent.</p>
-      <p>In the meantime, learn more about Credtent's Creative Origin badges — a free tool for disclosing AI's role in your creative work.</p>
-      <a href="https://registry.credtent.org/creative-origin" target="_blank" rel="noopener">Explore Creative Origin Badges →</a>
+  <main>
+    <div class="embed-wrap">
+      <iframe
+        src="https://tally.so/embed/ODBMr8?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        title="AI &amp; Creativity in Tabletop Gaming Survey"
+        loading="lazy"
+        allow="clipboard-read; clipboard-write"></iframe>
     </div>
   </main>
-
-  <!-- Footer -->
   <footer>
-    <p>A survey presented in partnership with <strong>Credtent</strong> · <a href="https://credtent.org">credtent.org</a></p>
-    <p style="margin-top:8px;">Questions? <a href="/cdn-cgi/l/email-protection#442c2128282b042736212030212a306a2b3623"><span class="__cf_email__" data-cfemail="6a020f0606052a09180f0e1e0f041e4405180d">[email&#160;protected]</span></a></p>
+    Built and hosted by <a href="https://credtent.org">Credtent</a> — Full Cycle Content Licensing for AI.
   </footer>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    // ── Show/hide "Other" fields on conditional selects ──
-    function toggleField(triggerId, fieldId) {
-      const trigger = document.getElementById(triggerId);
-      const field   = document.getElementById(fieldId);
-      if (!trigger || !field) return;
-      const update = () => field.classList.toggle('visible', trigger.checked);
-      trigger.addEventListener('change', update);
-      update();
-    }
-
-    toggleField('other-role-check',      'other-role-field');
-    toggleField('other-overall-check',   'other-overall-field');
-    toggleField('badge-concerns-check',  'badge-concerns-field');
-    toggleField('copyright-opinion-check','copyright-opinion-field');
-    toggleField('style-nuance-check',    'style-nuance-field');
-
-    // Show name field when "Yes" is selected
-    document.querySelectorAll('input[name="include_name"]').forEach(radio => {
-      radio.addEventListener('change', () => {
-        document.getElementById('name-field').classList.toggle('visible', document.getElementById('name-yes').checked);
-      });
-    });
-
-    // ── Form submission via Formspree ──
-    const form = document.getElementById('survey-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('.btn-submit');
-      btn.textContent = 'Submitting…';
-      btn.disabled = true;
-
-      try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-
-        if (res.ok) {
-        
+  <script async src="https://tally.so/widgets/embed.js"></script>
+</body>
+</html>
